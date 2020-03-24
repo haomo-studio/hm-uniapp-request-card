@@ -14,7 +14,7 @@
 
 ## 技术支持
 
-* [uni-app插件市场](https://ext.dcloud.net.cn/plugin?id=1380)
+* [uni-app插件市场](https://ext.dcloud.net.cn/plugin?id=1481)
 
 * [npm包](https://www.npmjs.com/package/hm-uniapp-request-card)
 
@@ -37,7 +37,7 @@
 在script中引用：
 
 ```javascript
-import componentUpperCamelCase from '@/components/hm-request-card/index.vue'
+import HmRequestCard from '@/components/hm-request-card/index.vue'
 export default {
     components: { HmRequestCard }
 }
@@ -48,27 +48,39 @@ export default {
 ```html
 <template>
   <div class="test-component">
-    <hm-request-card></hm-request-card>
+    <hm-request-card :options="options"></hm-request-card>
   </div>
 </template>
 <script>
 import HmRequestCard from '@/components/hm-components/hm-request-card/index.vue'
 
 export default {
-  components: { HmRequestCard },
+  components: {
+    HmRequestCard
+    },
   data() {
     return {
+      options: {
+          avator:
+            '/static/hm-request-card/images/img_25260_0_0.png',
+          name: '马莉',
+          address: '上海',
+          statimg:
+            '/static/hm-request-card/images/img_25260_0_1.png',
+          largeIcon:
+            '/static/hm-request-card/images/img_25260_0_2.png',
+          agree: '同意',
+          cancel: '取消'
+        }
     };
   },
   methods: {
-    onClick: function(e) {
-      console.log('onClick');
-    }
   }
 };
 </script>
 <style>
 </style>
+
 ```
 
 ## 属性说明
@@ -81,7 +93,12 @@ options对象各个属性说明如下：
 
 | 属性名        | 类型     | 默认值 | 说明                                                                       |
 |-----------   |---------|--------|----------------------------------------------------------------------------|
-| title        | String  | -      | 标题文字                                                                   |
+| name        | String  | -      | 姓名                                                                   |
+| address        | String  | -      | 地址                                                                   |
+| statimg        | String  | -      | 图片                                                                   |
+| largeIcon        | String  | -      | 图片                                                                   |
+| agree        | String  | -      | 同意                                                                   |
+| cancel        | String  | -      | 取消                                                                   |
 
 ## 事件说明
 
@@ -91,6 +108,6 @@ options对象各个属性说明如下：
 
 ## 更新日志
 
-### 0.0.1(2020-03-07)
+### 0.0.1(2020-03-24)
 
 * 完成第一个版本
